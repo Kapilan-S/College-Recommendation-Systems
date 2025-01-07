@@ -1,0 +1,131 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* SpaceX theme: dark background */
+    color: #ffffff; /* White text for contrast */
+    margin: 0;
+    padding: 0;
+  }
+  /* Navbar Styling */
+.navbar {
+  background-color: #1a1a1a; /* Slightly lighter than the body background */
+  border-bottom: 1px solid #333;
+}
+
+.navbar-brand {
+  font-size: 0.9rem; /* Reduced font size */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+
+.nav-link {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00bcd4; /* SpaceX blue highlight */
+}
+
+.navbar-toggler {
+  border-color: #00bcd4;
+}
+
+/* Align navbar items */
+.navbar-nav {
+  display: flex; /* Flexbox to align items */
+  justify-content: space-between; /* Distribute the items evenly */
+  align-items: center; /* Center them vertically */
+  width: 100%; /* Take full width */
+}
+
+  
+  /* Jumbotron Styling */
+  .jumbotron {
+    background: linear-gradient(135deg, #0d0d0d 30%, #1f1f1f);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .jumbotron h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  
+  .jumbotron h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #cccccc;
+  }
+  
+  /* Form Styling */
+  form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  form input[type="text"]:focus {
+    border-color: #00bcd4;
+    background-color: #0d0d0d;
+  }
+  
+  form input[type="submit"] {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+  }
+  
+  /* Footer Styling */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: #cccccc;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+  }
+  
+  /* Add a modern button hover effect */
+  footer p:hover {
+    color: #00bcd4;
+    cursor: pointer;
+  }
+  
+  /* Animation for focus/hover inputs */
+  input:focus, input:hover {
+    box-shadow: 0 0 5px #00bcd4;
+  }
+  

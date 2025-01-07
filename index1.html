@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Recommendation System</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Dynamic Background Styling */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background: url("https://images.alphacoders.com/932/thumb-1920-932313.jpg") center/cover no-repeat fixed;
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+      }
+
+      /* Floating Welcome Text */
+      .welcome-text {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        color: #00bcd4;
+        animation: fadeInOut 4s forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 1;
+          color: #00bcd4; /* Initial color */
+        }
+        50% {
+          opacity: 1;
+          color: #ff4081; /* Change color to pink */
+        }
+        100% {
+          opacity: 0;
+          color: #ff4081; /* Final color */
+        }
+      }
+
+      /* Background Effect */
+      .background-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        z-index: -1;
+        transform: translate(-25%, -25%);
+        transition: transform 0.1s ease-out;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff !important;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-brand:hover {
+        color: #00bcd4 !important;
+      }
+
+      .nav-link {
+        color: #ddd !important;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #00bcd4 !important;
+        text-decoration: underline;
+      }
+
+      /* Jumbotron Styling */
+      .jumbotron {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin-top: 10rem;
+        transition: transform 0.3s ease-out;
+      }
+
+      .jumbotron h4 {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .jumbotron .lead {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+      }
+
+      .jumbotron .btn {
+        margin: 1rem;
+        font-size: 1.2rem;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-success {
+        background-color: #00bcd4;
+        border-color: #00bcd4;
+      }
+
+      .btn-success:hover {
+        background-color: #00a3b4;
+        border-color: #00969e;
+      }
+
+      .btn-lg {
+        padding: 16px 32px;
+      }
+
+      /* Footer Styling */
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+      }
+
+      /* Parallax Background Effect */
+      @keyframes parallax {
+        0% {
+          transform: translate(0%, 0%);
+        }
+        50% {
+          transform: translate(5%, 5%);
+        }
+        100% {
+          transform: translate(0%, 0%);
+        }
+      }
+
+      .background-container {
+        animation: parallax 20s linear infinite;
+      }
+
+      /* Hover Effect for Jumbotron */
+      .jumbotron:hover {
+        transform: scale(1.05);
+      }
+
+      /* Card Shadow */
+      .card {
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Hover Effect for Buttons */
+      .btn:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+      }
+
+      /* Responsiveness */
+      @media (max-width: 768px) {
+        .navbar-brand {
+          font-size: 1.5rem;
+        }
+
+        .jumbotron h4 {
+          font-size: 1.6rem;
+        }
+
+        .btn-lg {
+          font-size: 1.1rem;
+        }
+
+        .welcome-text {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Welcome Text -->
+    <div class="welcome-text">
+      <p>Welcomes You!</p>
+    </div>
+
+    <!-- Dynamic Background -->
+    <div class="background-container" id="background"></div>
+
+    <!-- Navbar -->
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <h6 class="navbar-brand">COLLEGE RECOMMENDATION SYSTEM</h6>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample05"
+          aria-controls="navbarsExample05"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#top-colleges">TOP COLLEGES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nirf-colleges">NIRF COLLEGES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#back-colleges">7.5% QUOTA COLLEGES</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Jumbotron Section -->
+    <div class="container">
+      <div class="jumbotron">
+        <h4>Select the Level of College Recommendations</h4>
+        <p class="lead">Choose the category below to explore your options:</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="/newindex" role="button">
+            UnderGraduate College
+          </a>
+          <a class="btn btn-lg btn-success" href="/graduate" role="button">
+            Post Graduate College
+          </a>
+          <a class="btn btn-lg btn-success" href="/rating" role="button">
+            Alumini Rating
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Top 10 Colleges in Tamil Nadu Section -->
+    <div class="container" id="top-colleges">
+      <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.6);">
+        <h4>Top 10 Colleges in Tamil Nadu for Students with Above 90% Score</h4>
+        <ul>
+          <li>Indian Institute of Technology (IIT) Madras – Chennai (Ranked 1 nationally)</li>
+          <li>National Institute of Technology (NIT) Tiruchirappalli – Tiruchirappalli (Ranked 9 nationally)</li>
+          <li>VIT University – Vellore (Ranked 15 nationally)</li>
+          <li>Anna University – Chennai (Ranked 17 nationally)</li>
+          <li>PSG College of Technology – Coimbatore (Ranked 31 nationally)</li>
+          <li>Sri Sivasubramaniya Nadar College of Engineering – Chennai (Ranked 34 nationally)</li>
+          <li>Bannari Amman Institute of Technology – Erode (Ranked 48 nationally)</li>
+          <li>SSN College of Engineering – Chennai (Ranked 55 nationally)</li>
+          <li>Amrita Vishwa Vidyapeetham – Coimbatore (Ranked 6 for medical and 26 for engineering nationally)</li>
+          <li>Mepco Schlenk Engineering College – Sivakasi (Ranked 76 nationally)</li>
+        </ul>
+      </div>
+    </div>
+        <div class="container" id="nirf-colleges">
+                    <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.6);">
+            <h4>Top NIRF Colleges in Tamil Nadu for 2024</h4>
+            <ul>
+              <li>Anna University, Chennai - (Ranked 14th nationally)</li>
+              <li>PSG College of Technology, Coimbatore - (Ranked 67th nationally)</li>
+              <li>Sri Krishna College of Engineering and Technology, Coimbatore - (Ranked 83rd nationally)</li>
+              <li>SSN College of Engineering, Kalavakkam - (Ranked 46th nationally)</li>
+            </ul>
+     </div>
+    </div>
+    <div class="container" id="back-colleges">
+      <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.6);">
+<h4>Top NIRF Colleges with 7.5% Quota </h4>
+<ul>
+  <li>Anna University, Chennai – (Ranked 14th in NIRF Engineering (2024).</li>
+  <li>National Institute of Technology (NIT), Trichy – (Ranked 9th in NIRF Engineering (2024).</li>
+  <li>VIT University, Vellore – (Ranked 15th in NIRF Engineering (2024).</li>
+  <li>SSN College of Engineering, Chennai – (Ranked 46th in NIRF Engineering (2024).</li>
+  <li>Amrita Vishwa Vidyapeetham, Coimbatore – (Ranked 26th in NIRF Engineering (2024).</li>
+  <li>PSG College of Technology, Coimbatore – (Ranked 67th in NIRF Engineering (2024)</li>
+</ul>
+</div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 College Recommendation System. All Rights Reserved.</p>
+    </footer>
+ 
+    <script>
+      <script>
+        // Enable smooth scrolling for "Top NIRF Colleges" link
+        document.querySelector('.nav-link[href="#nirf-colleges"]').addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent the default anchor behavior
+          const targetSection = document.querySelector('#back-colleges');
+          targetSection.style.display = 'block'; // Show the NIRF colleges section
+          targetSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to NIRF section
+        });
+        // Enable smooth scrolling for "Top NIRF Colleges" link
+        document.querySelector('.nav-link[href="#nirf-colleges"]').addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent the default anchor behavior
+          const targetSection = document.querySelector('#nirf-colleges');
+          targetSection.style.display = 'block'; // Show the NIRF colleges section
+          targetSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to NIRF section
+        });
+      // Enable smooth scrolling for "Top Colleges" link
+      document.querySelector('.nav-link[href="#top-colleges"]').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        const targetSection = document.querySelector('#top-colleges');
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>

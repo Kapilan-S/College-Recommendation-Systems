@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>College Recommendation System</title>
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" 
+          crossorigin="anonymous">
+    <style>
+      body {
+        background-image: url('https://images.alphacoders.com/932/thumb-1920-932313.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+      }
+      .container {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .navbar {
+        border-radius: 5px;
+      }
+      .navbar-brand, .nav-link {
+        color: #00bcd4 !important;
+      }
+      .nav-link:hover {
+        color: #fff !important;
+      }
+      .jumbotron {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+      }
+      h3, h4, label {
+        color: #00bcd4;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 2px solid #cccccc;
+        border-radius: 5px;
+      }
+      input[type="text"]:focus {
+        border-color: #00bcd4;
+        outline: none;
+      }
+      input[type="submit"] {
+        background-color: #00bcd4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #008ba3;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <h3 class="navbar-brand">College Recommendation System</h3>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                  data-target="#navbarsExample05" aria-controls="navbarsExample05" 
+                  aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample05">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/main">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/undergraduate">Undergraduate College</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/graduate">Graduate College<span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+          </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+          <h3>Undergraduate College</h3>
+          <h4>Please Enter Your School Details</h4>
+          <form action="/graduatealgo">
+            <label>SSLC Exam Score:</label>
+            <input type="text" name="greV" placeholder="Enter your SSLC score">
+            <label>HSE Exam Score:</label>
+            <input type="text" name="greQ" placeholder="Enter your HSE score">
+            <label>NEET Score:</label>
+            <input type="text" name="greA" placeholder="Enter your NEET Score(000 if not eligible)">
+            <label>JEE score:</label>
+            <input type="text" name="cgpa" placeholder="Enter your JEE Score(000 if not eligible)">
+            <input type="submit" value="Submit">
+          </form>
+      </div>
+      <footer class="footer">
+          <p>&copy; 2024 College Recommendation System</p>
+      </footer>
+    </div>
+
+    <!-- Optional animations with JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+          input.addEventListener('focus', () => {
+            input.style.borderColor = '#00bcd4';
+          });
+          input.addEventListener('blur', () => {
+            input.style.borderColor = '#cccccc';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

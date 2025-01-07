@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Login and Signup Form</title>
+  <!-- Linking CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Importing jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Linking JavaScript -->
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="index.html">Login</button>
+      <button id="signupTab" >Signup</button>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container" id="loginForm">
+      <h1>Login Page</h1>
+      <div class="login-content">
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+          </div>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-container" id="signupForm" style="display: none;">
+      <h1>Signup Page</h1>
+      <div class="login-content">
+        <form action="signup_action.php" method="post">
+          <div class="form-group">
+            <label for="signupName">Name</label>
+            <input type="text" id="signupName" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="password" placeholder="Enter your password" required>
+          </div>
+          <input type="submit" value="Signup">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for switching tabs -->
+  <script>
+    $(document).ready(function() {
+      $('#loginTab').click(function() {
+        $('#signupForm').hide();
+        $('#loginForm').show();
+        $('#loginTab').addClass('active');
+        $('#signupTab').removeClass('active');
+      });
+
+      $('#signupTab').click(function() {
+        $('#loginForm').hide();
+        $('#signupForm').show();
+        $('#signupTab').addClass('active');
+        $('#loginTab').removeClass('active');
+      });
+    });
+  </script>
+
+  <!-- Optional external CSS file for tab styling -->
+  <style>
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s;
+    }
+    .tabs button.active {
+      background-color: #007bff;
+      color: white;
+    }
+    .form-container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+  </style>
+</body>
+</html>
